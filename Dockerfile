@@ -2,7 +2,7 @@
 FROM node:20-alpine AS client
 WORKDIR /app/client
 COPY ./client/package*.json .
-RUN npm install
+RUN npm config set strict-ssl=false && npm install
 COPY client .
 RUN npm run build
 
