@@ -20,8 +20,7 @@ const options = {
 // Serve static React app files from build folder
 app.use(express.static(path.resolve(__dirname, '..', 'client', 'dist'), {
     cacheControl: true,
-    maxAge:  86_400_000, //1 day
-    age: 86_400_000,
+    maxAge:  86400000000, //1 day
 }));
 
 app.use(helmet());
