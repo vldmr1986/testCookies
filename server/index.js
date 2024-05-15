@@ -23,7 +23,13 @@ app.use(express.static(path.resolve(__dirname, '..', 'client', 'dist'), {
     maxAge:  86400000000, //1 day
 }));
 
-app.use(helmet());
+app.use(helmet({
+    strictTransportSecurity: {
+      maxAge: 63072000,
+      preload: true,
+      includeSubDomains: true,
+    },
+  }));
 
 // Proxy API requests (adjust url as needed)
 // app.use('/api', require('http-proxy-middleware')({ target: 'http://localhost:5000' }));
